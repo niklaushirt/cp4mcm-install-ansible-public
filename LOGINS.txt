@@ -1,0 +1,104 @@
+***************************************************************************************************************************************************
+***************************************************************************************************************************************************
+***************************************************************************************************************************************************
+***************************************************************************************************************************************************
+
+
+
+        
+
+
+
+  
+  🚀 CloudPak for MultiCloud Management 3.2 - Logins and URLs 
+  
+***************************************************************************************************************************************************
+***************************************************************************************************************************************************
+***************************************************************************************************************************************************
+  
+  
+***************************************************************************************************************************************************
+***************************************************************************************************************************************************
+🚀 CloudPak for MultiCloud Management
+***************************************************************************************************************************************************
+***************************************************************************************************************************************************
+    
+    -----------------------------------------------------------------------------------------------------------------------------------------------
+    -----------------------------------------------------------------------------------------------------------------------------------------------
+    🚀 MultiCloud Management
+    -----------------------------------------------------------------------------------------------------------------------------------------------
+    -----------------------------------------------------------------------------------------------------------------------------------------------
+    
+      📥 MultiCloud Management
+
+                🌏 URL:      https://cp-console.itzroks-270003bu3k-9ce12u-6ccd7f378ae819553d37d5f2ee142bd6-0000.eu-gb.containers.appdomain.cloud
+
+                🧑 User:     admin
+                🔐 Password: 4rPAOtapFaSV9KxiKp6jxy94FmmgHifV
+     
+     
+    
+    
+    
+    
+***************************************************************************************************************************************************
+***************************************************************************************************************************************************
+🚀 Openshift Connection Details
+***************************************************************************************************************************************************
+***************************************************************************************************************************************************
+
+  📥 Openshift Console
+
+            🌏 URL:      https://console-openshift-console.itzroks-270003bu3k-9ce12u-6ccd7f378ae819553d37d5f2ee142bd6-0000.eu-gb.containers.appdomain.cloud
+ 
+ 
+ 
+  📥 Openshift Command Line
+
+            🌏 URL:     https://c108-e.eu-gb.containers.cloud.ibm.com:30634
+            🔐 Token:   eyJhbGciOiJSUzI1NiIsImtpZCI6ImNCdTBsTWkwdS1GcUlnNW9Cbk1zQ3JfUkNGa0FrNkdVbl9YX3IyTGQ0SXcifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJkZWZhdWx0Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImRlbW8tYWRtaW4tdG9rZW4tOHRtcW0iLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGVtby1hZG1pbiIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjYyYzQ4MDllLTJhMzQtNDIxNy04ZjAwLWM2MWUxYzFkZjk5MSIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpkZWZhdWx0OmRlbW8tYWRtaW4ifQ.mH8C7yLx7JEV1Y3yr3BVa8r_YgYapWLx510FXILsLXuKhYwKATRi5KUUve7Gil-NkCzyTszHTI4jD7rOtJxJuKxJQFCQ2BTcNVuSEP5IKiHPO7FBNCrUlgh9yDKY4xOQMFegF34uiUJTUwUfCr6LT4lxxyTbF5GtD5o9AAXojJhYMaABcpjRnHn8mmE4i4vz9iPw1adpRZtlK8ufIy7H6wLFZdir0wo8KHewAOC5lil98Nm_oOSay7gs1_Q2rt8AIdiEDTZeZAb46ScXG9rjwWLGPJoBjBdR9TLNiDUZzmHH0doeDR4dKCgsxxUkyHscs0p4qDLzlJNoAHjueVcxtA
+
+
+            🧑 Login:   oc login --token=eyJhbGciOiJSUzI1NiIsImtpZCI6ImNCdTBsTWkwdS1GcUlnNW9Cbk1zQ3JfUkNGa0FrNkdVbl9YX3IyTGQ0SXcifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJkZWZhdWx0Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImRlbW8tYWRtaW4tdG9rZW4tOHRtcW0iLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGVtby1hZG1pbiIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjYyYzQ4MDllLTJhMzQtNDIxNy04ZjAwLWM2MWUxYzFkZjk5MSIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpkZWZhdWx0OmRlbW8tYWRtaW4ifQ.mH8C7yLx7JEV1Y3yr3BVa8r_YgYapWLx510FXILsLXuKhYwKATRi5KUUve7Gil-NkCzyTszHTI4jD7rOtJxJuKxJQFCQ2BTcNVuSEP5IKiHPO7FBNCrUlgh9yDKY4xOQMFegF34uiUJTUwUfCr6LT4lxxyTbF5GtD5o9AAXojJhYMaABcpjRnHn8mmE4i4vz9iPw1adpRZtlK8ufIy7H6wLFZdir0wo8KHewAOC5lil98Nm_oOSay7gs1_Q2rt8AIdiEDTZeZAb46ScXG9rjwWLGPJoBjBdR9TLNiDUZzmHH0doeDR4dKCgsxxUkyHscs0p4qDLzlJNoAHjueVcxtA --server=https://c108-e.eu-gb.containers.cloud.ibm.com:30634
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+***************************************************************************************************************************************************
+***************************************************************************************************************************************************
+🚀 CloudPak for MultiCloud Management - Technical Links
+***************************************************************************************************************************************************
+***************************************************************************************************************************************************
+    
+    
+    
+    -----------------------------------------------------------------------------------------------------------------------------------------------
+    -----------------------------------------------------------------------------------------------------------------------------------------------
+    🚀 LDAP 
+    -----------------------------------------------------------------------------------------------------------------------------------------------
+    -----------------------------------------------------------------------------------------------------------------------------------------------
+    
+            📥 OPENLDAP:
+    
+                🌏 URL:      http://openldap-admin-default.itzroks-270003bu3k-9ce12u-6ccd7f378ae819553d37d5f2ee142bd6-0000.eu-gb.containers.appdomain.cloud
+                🧑 User:     cn=admin,dc=ibm,dc=com
+                🔐 Password: P4ssw0rd!
+    
+    
+    
+    

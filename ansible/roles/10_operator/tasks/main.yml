@@ -1,0 +1,57 @@
+
+# *************************************************************************************************************************************************
+# --------------------------------------------------------------------------------------------------------------------------------------
+# Install CP4MCM PREREQUISITES
+# --------------------------------------------------------------------------------------------------------------------------------------
+# *************************************************************************************************************************************************
+
+
+# Create IBM Operator Catalog
+- name: CP4MCM -           🚀 Install IBM Operator Catalog
+  kubernetes.core.k8s:
+    state: present
+    src: ./templates/mcm/1_cat-ibm-operator.yaml
+
+
+
+# Create IBM AIOps Operator Group
+- name: CP4MCM -           🚀 Install Operator Group
+  kubernetes.core.k8s:
+    state: present
+    template: ./templates/mcm/2_opgroup-ibm-mcm.j2
+
+
+# Create IBM AIOps Subscription
+- name: CP4MCM -           🚀 Install Subscription
+  kubernetes.core.k8s:
+    state: present
+    template: ./templates/mcm/3_sub-ibm-mcm-orchestrator.j2
+
+
+
+# --------------------------------------------------------------------------------------------------------------------------------------
+# Wait for CSV being ready
+# --------------------------------------------------------------------------------------------------------------------------------------
+- name: CP4MCM -              🕦 Wait for CSVs to become ready
+  shell: |
+    NUM_CSV=$(oc get csv -n {{ MCM_NAMESPACE }} | wc -l)
+    echo $NUM_CSV
+  register: kubectl_num_csv
+  until: kubectl_num_csv.stdout|int > 2
+  retries: 500
+  delay: 15
+
+
+
+
+
+- name: CP4MCM -              🕦 Wait for CSVs to become ready
+  shell: oc get csv -n {{ MCM_NAMESPACE }}|grep -v "Succeeded" | grep -c ""
+  register: kubectl_get_pods
+  until: kubectl_get_pods.stdout == "1"
+  retries: 500
+  delay: 15
+
+
+
+

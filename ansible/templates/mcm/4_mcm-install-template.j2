@@ -1,0 +1,140 @@
+apiVersion: orchestrator.management.ibm.com/v1alpha1
+kind: Installation
+metadata:
+  name: {{ MCM_NAME }}-install
+  namespace: {{ MCM_NAMESPACE }}
+spec:
+  storageClass: '{{ STORAGE_CLASS_FILE }}'
+  imagePullSecret: ibm-entitlement-key
+  license:
+    accept: true
+  mcmCoreDisabled: {{ MCM_CORE_DISABLED }}
+  pakModules:
+    - config:
+        - enabled: {{ INSTALL_INFRA_VM }}
+          name: ibm-management-im-install
+          spec: {}
+        - enabled: {{ INSTALL_INFRA_GRC }}
+          name: ibm-management-infra-grc
+          spec: {}
+        - enabled: {{ INSTALL_INFRA_VM }}
+          name: ibm-management-infra-vm
+          spec: {}
+        - enabled: {{ INSTALL_INFRA_CAM }}
+          name: ibm-management-cam-install
+          spec:
+            manageservice:
+              camAnsibleProvider:
+                replicaCount: 0
+              roks: true
+              camLogsPV:
+                persistence:
+                  #enabled: false
+                  storageClassName: {{ STORAGE_CLASS_LARGE_BLOCK }}
+              camMongoPV:
+                persistence:
+                  #enabled: false
+                  storageClassName: {{ STORAGE_CLASS_LARGE_BLOCK }}
+                  accessMode: ReadWriteOnce
+              camTerraformPV:
+                persistence:
+                  #enabled: false
+                  storageClassName: {{ STORAGE_CLASS_LARGE_BLOCK }}                  
+        - enabled: {{ INSTALL_INFRA_SERVICE_LIBRARY }}
+          name: ibm-management-service-library
+          spec: {}
+      enabled: true
+      name: infrastructureManagement
+    - config:
+        - enabled: {{ INSTALL_MON_MONITORING }}
+          name: ibm-management-monitoring
+          spec:
+            operandRequest: {}
+            monitoringDeploy:
+              global:
+                monitoring:
+                  analytics: true
+                  ha: false
+                metric:
+                  summary:
+                    enabled: true
+                  retention:
+                    rawMaxDays: 8
+                minReplicasHPAs: 1
+                agentmgmt:
+                  provider:
+                    autoRemove: true
+                    ttl: 24
+                environmentSize: size0
+                persistence:
+                  storageClassOption:
+                    cassandrabak: none
+                    cassandradata: default
+                    couchdbdata: default
+                    datalayerjobs: default
+                    elasticdata: default
+                    kafkadata: default
+                    zookeeperdata: default
+                  storageSize:
+                    cassandrabak: 50Gi
+                    cassandradata: 50Gi
+                    couchdbdata: 5Gi
+                    datalayerjobs: 5Gi
+                    elasticdata: 5Gi
+                    kafkadata: 50Gi
+                    zookeeperdata: 1Gi
+              autoconfig:
+                testActive: "true"
+                testInterval: "5"
+                disableAlerts: "true"
+                useAllLocations: "false"
+      enabled: true
+      name: monitoring
+    - config:
+        - enabled: {{ INSTALL_MCMNOT }}
+          name: ibm-management-notary
+          spec: {}
+        - enabled: {{ INSTALL_MCMIMGSEC }}
+          name: ibm-management-image-security-enforcement
+          spec: {}
+        - enabled: {{ INSTALL_MCMMUT }}
+          name: ibm-management-mutation-advisor
+          spec: {}
+        - enabled: {{ INSTALL_MCMVUL }}
+          name: ibm-management-vulnerability-advisor
+          spec:
+            controlplane:
+              esSecurityEnabled: true
+              esServiceName: elasticsearch.ibm-common-services
+              esSecretName: logging-elk-certs
+              esSecretCA: ca.crt
+              esSecretCert: curator.crt
+              esSecretKey: curator.key
+            annotator:
+              esSecurityEnabled: true
+              esServiceName: elasticsearch.ibm-common-services
+              esSecretName: logging-elk-certs
+              esSecretCA: ca.crt
+              esSecretCert: curator.crt
+              esSecretKey: curator.key
+            indexer:
+              esSecurityEnabled: true
+              esServiceName: elasticsearch.ibm-common-services
+              esSecretName: logging-elk-certs
+              esSecretCA: ca.crt
+              esSecretCert: curator.crt
+              esSecretKey: curator.key
+      enabled: true
+      name: securityServices
+    - config:
+        - enabled: {{ INSTALL_OPS_CHAT }}
+          name: ibm-management-sre-chatops
+          spec: {}
+      enabled: true
+      name: operations
+    - config:
+        - enabled: {{ INSTALL_TP_MNG_RT }}
+          name: ibm-management-manage-runtime
+          spec: {}
+      enabled: true
+      name: techPreview

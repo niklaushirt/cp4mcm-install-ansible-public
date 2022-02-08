@@ -1,0 +1,54 @@
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------------------------------------"
+#  Installing CP4MCM 3.2
+#
+#  CloudPak for MultiCloud Management
+#
+#  ©2022 nikh@ch.ibm.com
+# ---------------------------------------------------------------------------------------------------------------------------------------------------"
+# ---------------------------------------------------------------------------------------------------------------------------------------------------"
+# ---------------------------------------------------------------------------------------------------------------------------------------------------"
+# ---------------------------------------------------------------------------------------------------------------------------------------------------"
+
+
+- hosts: localhost
+  #become: true
+  vars_files: ../00_config_cp4mcm.yaml
+
+  roles:  
+# Placeholder for customization
+    - role: 00_pre
+
+# Run Prerequisites
+    - role: 01_initialization
+      
+  
+    - role: 02_rook-ceph
+      when: ROOK_CEPH_INSTALL_MODE=="enable" or ROOK_CEPH_INSTALL_MODE=="automatic"
+
+    - role: 03_get-storage-class
+      
+
+    - role: 04_prerequisites
+      
+# Install Common Services Operator
+    - role: 05_common-services
+    
+ 
+# Install CP4MCM Operator
+    - role: 10_operator
+            
+# Install CP4MCM Instance
+    - role: 11_install
+      
+# Install Add-Ons while CP4MCM is coming up
+    - role: 26_addons-user
+
+
+# Wait for Common Services being completely installed
+    - role: 99_wait-common-services      
+
+# Wait for CP4MCM being completely installed
+    - role: 99_wait-cp4mcm
+      
+
