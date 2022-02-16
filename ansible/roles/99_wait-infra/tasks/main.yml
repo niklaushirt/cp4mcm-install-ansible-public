@@ -1,0 +1,57 @@
+
+# *************************************************************************************************************************************************
+# --------------------------------------------------------------------------------------------------------------------------------------
+# Waiting for CP4MCM installation to finish
+# --------------------------------------------------------------------------------------------------------------------------------------
+# *************************************************************************************************************************************************
+    
+
+
+# --------------------------------------------------------------------------------------------------------------------------------------
+# Wait for {{ MCM_NAMESPACE }} Namespace to be ready
+# --------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+- name: CHECK -          🕦 Wait for more than >20 pods in namespace management-infrastructure-management
+  shell: |
+    NUM_PODS=$(oc get po -n management-infrastructure-management | wc -l)
+    echo $NUM_PODS
+  register: kubectl_num_pods
+  until: kubectl_num_pods.stdout|int > 20
+  retries: 500
+  delay: 15
+  when: INSTALL_INFRA_CAM or INSTALL_INFRA_VM or INSTALL_INFRA_GRC or INSTALL_INFRA_SERVICE_LIBRARY
+
+- name: CHECK -          🕦 Wait for all Pods in management-infrastructure-management to become ready
+  shell: oc get po -n management-infrastructure-management | grep -v Completed | grep -v Error |grep "0/" |wc -l| tr -d ' '
+  register: kubectl_get_pods
+  until: kubectl_get_pods.stdout == "0"
+  retries: 500
+  delay: 15
+  when: INSTALL_INFRA_CAM or INSTALL_INFRA_VM or INSTALL_INFRA_GRC or INSTALL_INFRA_SERVICE_LIBRARY
+
+
+
+# - name: CHECK -          🕦 Wait for more than >40 pods in namespace management-monitoring
+#   shell: |
+#     NUM_PODS=$(oc get po -n management-monitoring | wc -l)
+#     echo $NUM_PODS
+#   register: kubectl_num_pods
+#   until: kubectl_num_pods.stdout|int > 40
+#   retries: 500
+#   delay: 15
+#   when: INSTALL_MON_MONITORING
+
+
+
+# - name: CHECK -          🕦 Wait for all Pods in management-monitoring to become ready
+#   shell: oc get po -n management-monitoring | grep -v Completed | grep -v Error |grep "0/" |wc -l| tr -d ' '
+#   register: kubectl_get_pods
+#   until: kubectl_get_pods.stdout == "0"
+#   retries: 500
+#   delay: 15
+#   when: INSTALL_MON_MONITORING
+
+

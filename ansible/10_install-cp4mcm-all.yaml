@@ -60,14 +60,15 @@
 
 #     - role: 30_patches
 
-# Post installation tasks
-    - role: 40_post-ldap-register
-
 
 # Wait for CP4MCM being completely installed
     - role: 99_wait-cp4mcm
       
+# Post installation tasks
+    - role: 40_post-ldap-register 
 
 # Install and register Infra Mgt
     - role: 41_infra-install
       
+# Wait for CP4MCM being completely installed
+    - role: 99_wait-infra

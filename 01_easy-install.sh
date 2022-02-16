@@ -219,7 +219,8 @@ menu_INSTALL_CP4MCM_ALL () {
             cd ansible
             ansible-playbook -e ENTITLED_REGISTRY_KEY=$TOKEN 10_install-cp4mcm-all.yaml
             cd -
-
+            echo  ""    
+            echo  ""
             echo "    -----------------------------------------------------------------------------------------------------------------------------------------------"
             echo "    -----------------------------------------------------------------------------------------------------------------------------------------------"
             echo "    🚀 MultiCloud Management"
@@ -241,6 +242,8 @@ menu_INSTALL_CP4MCM_ALL () {
             echo  ""    
             echo  ""
       fi
+      echo  ""    
+      echo  ""
 }
 
 

@@ -50,6 +50,16 @@
     src: ./templates/common-services/2_sub-common-services.yaml
 
 
+
+- name: COMMON SERVICES -           🕦 Wait for Common Services CRD to be ready
+  shell: oc get crd commonservices.operator.ibm.com --no-headers|wc -l| tr -d ' '
+  register: kubectl_get_crd
+  until: kubectl_get_crd.stdout == "1"
+  retries: 500
+  delay: 15
+
+
+
 # Create IBM Operator Subscription
 - name: COMMON SERVICES -           🚀 Install IBM Common Services
   kubernetes.core.k8s:
